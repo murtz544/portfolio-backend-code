@@ -20,6 +20,7 @@ app.use(
     origin: [process.env.PORTFOLIO_URL, process.env.DASHBOARD_URL],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(cookieParser());
