@@ -110,6 +110,8 @@ export const updateProject = catchAsyncErrors(async(req,res,next) => {
         runValidators: true,
         useFindAndModify: false
     });
+    console.log("Cookies:", req.cookies);
+    console.log("Auth Header:", req.headers.authorization);
     res.status(200).json({
         success: true,
         message: "Project Updated!",
