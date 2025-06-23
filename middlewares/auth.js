@@ -14,6 +14,13 @@ export const isAuthenticated = catchAsyncErrors(async (req, res, next) => {
         token = req.headers.authorization.split(' ')[1]; // Bearer token
     }
     
+    // Temporary: Check body for token (remove this later)
+    if (!token && req.body.token) {
+        token = req.body.token;
+    }
+    
+    console.log('Final token:', token);
+    
     console.log('Token from cookies:', token); // Debug line
     if (!token) {
         return next(new ErrorHandler("User Not Authenticated!", 400));
